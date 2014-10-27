@@ -1,0 +1,26 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".txt" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Assembly Name="System.Windows.Forms" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Globalization" #>
+<#
+	var folders = new List<string>
+	{
+		@"C:\Work\Git\Fortis.Codegen.Transitus\Source\sitecoreFiles\sitecore"
+	};
+#>
+<#@ include file="Fortis.t4" #>
+<#+
+	string SitecoreSystemTemplatePath = "/sitecore/templates/System/";
+	string ClientTemplatePath = "/sitecore/templates/User Defined/";
+	string BaseNamespace = "Rocketcore.Model";
+	string BaseRenderingParametersTemplateId = "{76D9D059-77E5-48F7-8BDA-65E78BC61A9B}";
+#>
