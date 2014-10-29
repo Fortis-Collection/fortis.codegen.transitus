@@ -2,6 +2,8 @@
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6C0DC5C8-13E7-4E67-B745-0BE9974C2439}</ProjectGuid>
@@ -70,4 +72,24 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Import Project="$(VSToolsPath)\TextTemplating\Microsoft.TextTemplating.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\TextTemplating\Microsoft.TextTemplating.targets" Condition="false" />
+  <PropertyGroup>
+    <TransformOnBuild>true</TransformOnBuild>
+    <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <transitusLibFolder>$(MSBuildProjectDirectory)\..\packages\Transitus.1.0.2.0\lib\net45</transitusLibFolder>
+    <librariesFolder>$(MSBuildProjectDirectory)\..\Libraries</librariesFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <T4ParameterValues Include="transitusLibFolder">
+      <Value>$(transitusLibFolder)</Value>
+      <Visible>false</Visible>
+    </T4ParameterValues>
+    <T4ParameterValues Include="librariesFolder">
+      <Value>$(librariesFolder)</Value>
+      <Visible>false</Visible>
+    </T4ParameterValues>
+  </ItemGroup>
 </Project>

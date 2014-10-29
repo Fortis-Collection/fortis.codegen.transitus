@@ -1,5 +1,5 @@
-﻿<#@ assembly name="$(SolutionDir)\packages\Transitus.1.0.2.0\lib\net45\Transitus.dll" #>
-<#@ assembly name="$(SolutionDir)\Libraries\Sitecore.Kernel.dll" #>
+﻿<#@ assembly name="$(transitusLibFolder)\Transitus.dll" #>
+<#@ assembly name="$(librariesFolder)\Sitecore.Kernel.dll" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>
 <#@ import namespace="System" #>
@@ -12,15 +12,6 @@
 <#@ import namespace="System.Text.RegularExpressions" #>
 <#@ import namespace="System.Globalization" #>
 <#@ import namespace="Transitus" #>
-using System;
-using System.Collections.Generic;
-using Sitecore.Data.Items;
-using Sitecore.ContentSearch;
-using Sitecore.ContentSearch.Linq.Common;
-using Fortis.Model;
-using Fortis.Model.Fields;
-using Fortis.Providers;
-
 <#
 	var items = new List<IItem>();
 
@@ -32,6 +23,16 @@ using Fortis.Providers;
 	}
 
 	var templates = Transitus.TransitusProvider.TemplateFactory.Create(items);
+#>
+using System;
+using System.Collections.Generic;
+using Sitecore.Data.Items;
+using Sitecore.ContentSearch;
+using Sitecore.ContentSearch.Linq.Common;
+using Fortis.Model;
+using Fortis.Model.Fields;
+using Fortis.Providers;
+<#
 
 	foreach (var template in templates)
 	{
@@ -55,7 +56,6 @@ namespace <#= FullNamespace(template.Path) #>
 <#
 	}	
 #>
-
 <#+
 public void GenerateTemplate(ITemplate template)
 {
@@ -134,7 +134,6 @@ public void GenerateTemplate(ITemplate template)
 <#+
 }
 #>
-
 <#+
 public void GenerateRenderingParametersTemplate(ITemplate template)
 {
@@ -192,7 +191,6 @@ public void GenerateRenderingParametersTemplate(ITemplate template)
 <#+
 }
 #>
-
 <#+
 public string RelativeNamespace(string templatePath)
 {
