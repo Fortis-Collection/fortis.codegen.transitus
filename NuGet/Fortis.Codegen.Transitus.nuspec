@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Fortis.Codegen.Transitus</id>
-        <version>1.0.0.1</version>
+        <version>1.0.0.2</version>
         <title>Fortis Codegen - Transitus</title>
         <authors>Kern Herskind Nightingale,Jason Bert</authors>
         <owners>Fortis Collections</owners>
@@ -12,7 +12,7 @@
         <description>A T4 template to help with generating the interfaces and classes using the Fortis framework.
 
 * Requires the Sitecore Kernel binary</description>
-        <releaseNotes>* Corrected folder structure of NuGet package</releaseNotes>
+        <releaseNotes>* Fixed an issue with line endings</releaseNotes>
         <copyright>Copyright 2014</copyright>
         <tags>Sitecore Transitus Fortis</tags>
         <dependencies>
