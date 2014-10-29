@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Fortis.Codegen.Transitus</id>
+        <version>1.0.0.0</version>
+        <title>Fortis Codegen - Transitus</title>
+        <authors>Kern Herskind Nightingale,Jason Bert</authors>
+        <owners>Fortis Collections</owners>
+        <licenseUrl>https://github.com/Fortis-Collection/fortis.codegen.transitus/blob/master/LICENSE</licenseUrl>
+        <projectUrl>http://fortis.ws/</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A T4 template to help with generating the interfaces and classes using the Fortis framework.
+
+* Requires the Sitecore Kernel binary</description>
+        <releaseNotes />
+        <copyright>Copyright 2014</copyright>
+        <tags>Sitecore Transitus Fortis</tags>
+        <dependencies>
+            <dependency id="Transitus" version="1.0.2.0" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="Fortis\Fortis.t4" target="Fortis\Fortis.t4" />
+    </files>
+</package>
