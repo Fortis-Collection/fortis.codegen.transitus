@@ -1,5 +1,4 @@
-﻿<#@ assembly name="$(transitusLibFolder)\Transitus.dll" #>
-<#@ assembly name="$(librariesFolder)\Sitecore.Kernel.dll" #>
+﻿<#@ include file="..\AssemblyReferences.tt" #>
 <#@ Assembly Name="System.Core" #>
 <#@ Assembly Name="System.Windows.Forms" #>
 <#@ import namespace="System" #>

@@ -18,7 +18,7 @@
 		//@"C:\Work\Git\Fortis.Codegen.Transitus\Source\sitecoreFiles\sitecore"
 	};
 #>
-<#@ include file="Fortis.t4" #>
+<#@ include file="Fortis/Fortis.t4" #>
 // Found <#= templates.Count() #> templates in <#= folders.Count() #> folders
 <#+
 	string SitecoreSystemTemplatePath = "/sitecore/templates/System/";

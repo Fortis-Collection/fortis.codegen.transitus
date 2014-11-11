@@ -14,6 +14,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>8d8c825a</NuGetPackageImportStamp>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -84,7 +86,9 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\AssemblyReferencesTT.1.0.12\build\AssemblyReferencesTT.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AssemblyReferencesTT.1.0.12\build\AssemblyReferencesTT.targets'))" />
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -92,24 +96,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Import Project="$(VSToolsPath)\TextTemplating\Microsoft.TextTemplating.targets" Condition="'$(VSToolsPath)' != ''" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\TextTemplating\Microsoft.TextTemplating.targets" Condition="false" />
-  <PropertyGroup>
-    <TransformOnBuild>true</TransformOnBuild>
-    <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <transitusLibFolder>$(MSBuildProjectDirectory)\..\packages\Transitus.1.0.2.0\lib\net45</transitusLibFolder>
-    <librariesFolder>$(MSBuildProjectDirectory)\..\Libraries</librariesFolder>
-  </PropertyGroup>
-  <ItemGroup>
-    <T4ParameterValues Include="transitusLibFolder">
-      <Value>$(transitusLibFolder)</Value>
-      <Visible>false</Visible>
-    </T4ParameterValues>
-    <T4ParameterValues Include="librariesFolder">
-      <Value>$(librariesFolder)</Value>
-      <Visible>false</Visible>
-    </T4ParameterValues>
-  </ItemGroup>
 </Project>
